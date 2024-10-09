@@ -1,0 +1,23 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetpack-io/devbox/0.13.3/.schema/devbox.schema.json",
+  "packages": [
+    "github:elixir-tools/next-ls/v0.23.2",
+    "elixir_1_17@latest",
+    "erlang_27@latest",
+    "sqlite-interactive@latest"
+  ],
+  "shell": {
+    "init_hook": [
+      "mkdir -p .nix-mix",
+      "mkdir -p .nix-hex",
+      "export MIX_HOME=$PWD/.nix-mix",
+      "export HEX_HOME=$PWD/.nix-hex",
+      "export ERL_AFLAGS='-kernel shell_history enabled'",
+      "mix local.hex --force",
+      "mix local.rebar --force"
+    ],
+    "scripts": {
+      "test": ["echo \"Error: no test specified\" && exit 1"]
+    }
+  }
+}
