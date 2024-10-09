@@ -20,5 +20,5 @@ defmodule PeckEaWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :peck_ea
+  use Gettext.Backend, otp_app: :peck_ea
 end

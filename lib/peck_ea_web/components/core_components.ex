@@ -17,7 +17,7 @@ defmodule PeckEaWeb.CoreComponents do
   use Phoenix.Component
 
   alias Phoenix.LiveView.JS
-  import PeckEaWeb.Gettext
+  use Gettext, backend: PeckEaWeb.Gettext
 
   @doc """
   Renders a modal.
