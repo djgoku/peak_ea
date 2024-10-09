@@ -1,0 +1,74 @@
+* PeckEa
+
+** Run app
+
+#+begin_src shell :async :results replace drawer output raw :exports both
+mix deps.get
+mix ecto.setup
+mix phx.server
+#+end_src
+
+#+begin_example
+Resolving Hex dependencies...
+Dependency resolution completed:
+Unchanged:
+  bandit 1.5.7
+  castore 1.0.9
+  cc_precompiler 0.1.10
+  db_connection 2.7.0
+  decimal 2.1.1
+  dns_cluster 0.1.3
+  ecto 3.12.4
+  ecto_sql 3.12.1
+  ecto_sqlite3 0.17.2
+  elixir_make 0.8.4
+  esbuild 0.8.1
+  expo 1.1.0
+  exqlite 0.25.0
+  file_system 1.0.1
+  finch 0.19.0
+  floki 0.36.2
+  gettext 0.26.1
+  hpax 1.0.0
+  jason 1.4.4
+  mime 2.0.6
+  mint 1.6.2
+  nimble_csv 1.2.0
+  nimble_options 1.1.1
+  nimble_pool 1.1.0
+  phoenix 1.7.14
+  phoenix_ecto 4.6.2
+  phoenix_html 4.1.1
+  phoenix_live_dashboard 0.8.4
+  phoenix_live_reload 1.5.3
+  phoenix_live_view 1.0.0-rc.6
+  phoenix_pubsub 2.1.3
+  phoenix_template 1.0.4
+  plug 1.16.1
+  plug_crypto 2.1.0
+  swoosh 1.17.2
+  tailwind 0.2.3
+  telemetry 1.3.0
+  telemetry_metrics 1.0.0
+  telemetry_poller 1.1.0
+  thousand_island 1.3.5
+  websock 0.5.3
+  websock_adapter 0.5.7
+All dependencies are up to date
+#+end_example
+
+** Running tests
+
+#+begin_src shell :async :results replace drawer :exports both
+mix deps.get
+mix test
+#+end_src
+
+#+RESULTS:
+:results:
+.................
+Finished in 0.2 seconds (0.07s async, 0.1s sync)
+17 tests, 0 failures
+
+Randomized with seed 691668
+:end:
