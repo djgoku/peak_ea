@@ -12,6 +12,20 @@
 
 NimbleCSV.define(DataSFParser, separator: ",", escape: "\"")
 
+{:ok, conn} = Exqlite.Sqlite3.open("peck_ea_dev.db")
+
+:ok =
+  Exqlite.Sqlite3.execute(
+    conn,
+    "create virtual table search using fts3 (applicant text, facility_type text, location_description text, status text, food_items text, vendor_id integer)"
+  )
+
+{:ok, statement} =
+  Exqlite.Sqlite3.prepare(
+    conn,
+    "insert into search (applicant, facility_type, location_description, status, food_items, vendor_id) VALUES (?1, ?2, ?3, ?4, ?5, ?6)"
+  )
+
 "priv/repo/mobile_food_facility_permit.csv"
 |> File.stream!(read_ahead: 100_000)
 |> DataSFParser.parse_stream()
@@ -82,6 +96,18 @@ NimbleCSV.define(DataSFParser, separator: ",", escape: "\"")
     %PeckEa.PeckEA.Vendor{}
     |> PeckEa.PeckEA.Vendor.changeset(attrs)
 
-  PeckEa.Repo.insert!(vendor)
+  inserted_vendor = PeckEa.Repo.insert!(vendor)
+
+  :ok =
+    Exqlite.Sqlite3.bind(conn, statement, [
+      applicant,
+      facility_type,
+      location_description,
+      status,
+      food_items,
+      inserted_vendor.id
+    ])
+
+  :done = Exqlite.Sqlite3.step(conn, statement)
 end)
 |> Stream.run()

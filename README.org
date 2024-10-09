@@ -1,5 +1,10 @@
 * PeckEa
 
+** Preqrequisite
+- elixir 1.16+
+- erlang 26+
+- sqlite3
+
 ** Run app
 
 #+begin_src shell :async :results replace drawer output raw :exports both
@@ -64,11 +69,36 @@ mix deps.get
 mix test
 #+end_src
 
-#+RESULTS:
-:results:
+#+begin_example
 .................
 Finished in 0.2 seconds (0.07s async, 0.1s sync)
 17 tests, 0 failures
 
 Randomized with seed 691668
-:end:
+#+end_example
+
+** [[https://sqlite.org/fts5.html][SQLite FTS (Full-text search)]]
+
+Here is an example of ~APPROVED~ ~taco~ food trucks.
+
+#+begin_src sqlite :db peck_ea_dev.db :colnames yes
+select v.applicant, v.facility_type, v.location_description, v.status, v.food_items from search inner join vendors v on search.vendor_id = v.id where search match 'taco approved' ;
+#+end_src
+
+#+RESULTS:
+| applicant                | facility_type | location_description                                        | status   | food_items                                               |
+|--------------------------+---------------+-------------------------------------------------------------+----------+----------------------------------------------------------|
+| San Francisco Taco Truck | Truck         | WILLIAMS AVE: VENUS ST to APOLLO ST (250 - 331)             | APPROVED | Tacos: Tortas: Burritos                                  |
+| Senor Sisig              | Truck         | ELLIS ST: POWELL ST to CYRIL MAGNIN ST (100 - 148)          | APPROVED | Filipino fusion food: taco: burrito: nachos: rice plates |
+| Senor Sisig              | Truck         | 02ND ST: MISSION ST to MINNA ST (100 - 130)                 | APPROVED | Filipino fusion food: taco: burrito: nachos: rice plates |
+| San Francisco Taco Truck | Truck         | WILLIAMS AVE: APOLLO ST to PHELPS ST \ VESTA ST (300 - 399) | APPROVED | Tacos: Tortas: Burritos                                  |
+
+** FUTURE
+- Add SQLite FTS for all environments instead of just dev/seeding.
+- Update the index to add a text search box to allow for filtering/searching.
+
+** STAY THE SAME
+- Use the seeds file to seed the database.
+
+** IF I RE-DID
+- Start with just importing everything as strings.
