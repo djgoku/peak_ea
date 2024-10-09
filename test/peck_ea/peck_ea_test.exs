@@ -8,37 +8,38 @@ defmodule PeckEa.PeckEATest do
 
     import PeckEa.PeckEAFixtures
 
-    @invalid_attrs %{
-      block: nil,
-      status: nil,
-      address: nil,
-      permit: nil,
-      location: nil,
-      approved: nil,
-      y: nil,
-      x: nil,
-      location_id: nil,
-      applicant: nil,
-      facility_type: nil,
-      cnn: nil,
-      location_description: nil,
-      blocklot: nil,
-      lot: nil,
-      food_items: nil,
-      latitude: nil,
-      longitude: nil,
-      schedule: nil,
-      days_hours: nil,
-      noisent: nil,
-      received: nil,
-      prior_permit: nil,
-      expiration_date: nil,
-      fire_prevention_districts: nil,
-      police_districts: nil,
-      supervisor_districts: nil,
-      zipcodes: nil,
-      neighborhoods: nil
-    }
+    # TODO: add validation back when we need to validate incoming data
+    # @invalid_attrs %{
+    #   block: nil,
+    #   status: nil,
+    #   address: nil,
+    #   permit: nil,
+    #   location: nil,
+    #   approved: nil,
+    #   y: nil,
+    #   x: nil,
+    #   location_id: nil,
+    #   applicant: nil,
+    #   facility_type: nil,
+    #   cnn: nil,
+    #   location_description: nil,
+    #   blocklot: nil,
+    #   lot: nil,
+    #   food_items: nil,
+    #   latitude: nil,
+    #   longitude: nil,
+    #   schedule: nil,
+    #   days_hours: nil,
+    #   noisent: nil,
+    #   received: nil,
+    #   prior_permit: nil,
+    #   expiration_date: nil,
+    #   fire_prevention_districts: nil,
+    #   police_districts: nil,
+    #   supervisor_districts: nil,
+    #   zipcodes: nil,
+    #   neighborhoods: nil
+    # }
 
     test "list_vendors/0 returns all vendors" do
       vendor = vendor_fixture()
@@ -115,9 +116,10 @@ defmodule PeckEa.PeckEATest do
       assert vendor.neighborhoods == "some neighborhoods"
     end
 
-    test "create_vendor/1 with invalid data returns error changeset" do
-      assert {:error, %Ecto.Changeset{}} = PeckEA.create_vendor(@invalid_attrs)
-    end
+    # TODO: add validation back when we need to validate incoming data
+    # test "create_vendor/1 with invalid data returns error changeset" do
+    #   assert {:error, %Ecto.Changeset{}} = PeckEA.create_vendor(@invalid_attrs)
+    # end
 
     test "update_vendor/2 with valid data updates the vendor" do
       vendor = vendor_fixture()
@@ -186,11 +188,12 @@ defmodule PeckEa.PeckEATest do
       assert vendor.neighborhoods == "some updated neighborhoods"
     end
 
-    test "update_vendor/2 with invalid data returns error changeset" do
-      vendor = vendor_fixture()
-      assert {:error, %Ecto.Changeset{}} = PeckEA.update_vendor(vendor, @invalid_attrs)
-      assert vendor == PeckEA.get_vendor!(vendor.id)
-    end
+    # TODO: add validation back when we need to validate incoming data
+    # test "update_vendor/2 with invalid data returns error changeset" do
+    #   vendor = vendor_fixture()
+    #   assert {:error, %Ecto.Changeset{}} = PeckEA.update_vendor(vendor, @invalid_attrs)
+    #   assert vendor == PeckEA.get_vendor!(vendor.id)
+    # end
 
     test "delete_vendor/1 deletes the vendor" do
       vendor = vendor_fixture()

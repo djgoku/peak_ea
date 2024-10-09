@@ -8,7 +8,7 @@ defmodule PeckEa.PeckEA.Vendor do
     field :address, :string
     field :permit, :string
     field :location, :string
-    field :approved, :string
+    field :approved, :string, default: ""
     field :y, :string
     field :x, :string
     field :location_id, :string
@@ -18,7 +18,7 @@ defmodule PeckEa.PeckEA.Vendor do
     field :location_description, :string
     field :blocklot, :string
     field :lot, :string
-    field :food_items, :string
+    field :food_items, :string, default: ""
     field :latitude, :string
     field :longitude, :string
     field :schedule, :string
@@ -70,37 +70,38 @@ defmodule PeckEa.PeckEA.Vendor do
       :zipcodes,
       :neighborhoods
     ])
-    |> validate_required([
-      :location_id,
-      :applicant,
-      :facility_type,
-      :cnn,
-      :location_description,
-      :address,
-      :blocklot,
-      :block,
-      :lot,
-      :permit,
-      :status,
-      :food_items,
-      :x,
-      :y,
-      :latitude,
-      :longitude,
-      :schedule,
-      # TODO: add validation back when we need to validate incoming data
-      # :days_hours,
-      # :noisent,
-      :approved,
-      :received,
-      :prior_permit,
-      :expiration_date,
-      :location,
-      :fire_prevention_districts,
-      :police_districts,
-      :supervisor_districts,
-      :zipcodes,
-      :neighborhoods
-    ])
+
+    # TODO: add validation back when we need to validate incoming data
+    # |> validate_required([
+    #   :location_id,
+    #   :applicant,
+    #   :facility_type,
+    #   :cnn,
+    #   :location_description,
+    #   :address,
+    #   :blocklot,
+    #   :block,
+    #   :lot,
+    #   :permit,
+    #   :status,
+    #   :food_items,
+    #   :x,
+    #   :y,
+    #   :latitude,
+    #   :longitude,
+    #   :schedule,
+    #   :days_hours,
+    #   :noisent,
+    #   :approved,
+    #   :received,
+    #   :prior_permit,
+    #   :expiration_date,
+    #   :location,
+    #   :fire_prevention_districts,
+    #   :police_districts,
+    #   :supervisor_districts,
+    #   :zipcodes,
+    #   :neighborhoods
+    # ])
   end
 end
