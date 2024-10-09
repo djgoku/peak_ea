@@ -18,6 +18,12 @@ defmodule PeckEaWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    live "/vendors", VendorLive.Index, :index
+    live "/vendors/new", VendorLive.Index, :new
+    live "/vendors/:id/edit", VendorLive.Index, :edit
+
+    live "/vendors/:id", VendorLive.Show, :show
+    live "/vendors/:id/show/edit", VendorLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.

@@ -7,7 +7,7 @@ defmodule PeckEaWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_peck_ea_key",
-    signing_salt: "uBRmwaU1",
+    signing_salt: "vd338Unp",
     same_site: "Lax"
   ]
 

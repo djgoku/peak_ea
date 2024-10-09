@@ -20,7 +20,7 @@ config :peck_ea, PeckEaWeb.Endpoint,
     layout: false
   ],
   pubsub_server: PeckEa.PubSub,
-  live_view: [signing_salt: "aFrU/JAk"]
+  live_view: [signing_salt: "9/CAu9+V"]
 
 # Configures the mailer
 #

@@ -20,7 +20,7 @@ config :peck_ea, PeckEaWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "RkFx9NhGUNgUnN8UBFriVETjbmhdK18g6leCf8tH7V635W6hZ0M1J26eNwcaGILv",
+  secret_key_base: "B2Cr5cnNxyCUNdp883Tf2FeN4OYEgY3ifd7aa6unpXfXmFlIfw7FROpzTj7hUr/F",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:peck_ea, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:peck_ea, ~w(--watch)]}

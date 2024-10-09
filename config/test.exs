@@ -14,7 +14,7 @@ config :peck_ea, PeckEa.Repo,
 # you can enable the server option below.
 config :peck_ea, PeckEaWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "HLjOjhaqk5FIGhNQ72+f/qrGRIKcDZz/tSWdrmW9yt7m6OSUSje1RKif5XUWHDcm",
+  secret_key_base: "QtAw5aPNlanekAc97g2v+ytmdTiyHUZBvXmBUIIOV+jGITrCXkvn6lOT82BazW5G",
   server: false
 
 # In test we don't send emails
